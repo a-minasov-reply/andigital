@@ -1,0 +1,14 @@
+<div class="content-wrap">
+  <h1>Foursquare Location Search</h1>
+  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+  <div>
+    <input #search value="london">
+    <button (click)="searchItems(search.value)">Search</button>
+
+    <ul *ngFor="let item of items">
+      <li>{{item.venue.name}}</li>
+    </ul>
+  </div>
+</div>
+
+
