@@ -52,5 +52,6 @@ Shut it down manually with Ctrl-C.
 ## Setup for production
 Open `app/main.ts` and add the following above the import statements: 
 > import {enableProdMode} from '@angular/core';
-and the following above `bootstrap(...)`
+
+and add the following above `bootstrap(...)`
 > enableProdMode();
