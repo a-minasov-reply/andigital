@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FoursquareService } from './foursquare.service';
+import { Item } from './foursquare-item';
 
 @Component({
   selector: 'foursquare-list',
@@ -10,13 +11,14 @@ import { FoursquareService } from './foursquare.service';
 
 export class FoursquareListComponent{
   errorMessage: any;
-  items : any;
+  items : Item;
 
   constructor (private foursquareService: FoursquareService) {}
 
   searchItems(term: string){
     console.log('searching');
-    this.foursquareService.getMockedItems().subscribe(
+    this.foursquareService.searchItems(term)
+      .subscribe(
       items => this.items = items,
       error =>  this.errorMessage = <any>error,
       () => console.log('done')
