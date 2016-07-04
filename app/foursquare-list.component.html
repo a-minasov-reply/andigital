@@ -1,7 +1,7 @@
 <div class="content-wrap">
-  <div class="container-fluid">
-    <div class="col-md-8">
-      <h2>Foursquare Location Search</h2>
+  <div class="container">
+    <div class="col-md-12">
+      <h1>Foursquare Location Search</h1>
 
       <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
       <form>
@@ -11,22 +11,24 @@
         </div>
       </form>
 
-      <div class="container-fluid">
+      <div class="container">
         <ul *ngFor="let item of items">
           <li>
             <div class="row">
               <div class="col-md-12">
-                <div class="col-xs-6 col-md-6"><img class="venue-image"
-                                                    src="{{item.venue.photos.groups[0].items[0].prefix}}{{item.venue.photos.groups[0].items[0].width}}x{{item.venue.photos.groups[0].items[0].height}}{{item.venue.photos.groups[0].items[0].suffix}}"/>
+                <img class="venue-image"
+                     src="{{item.venue.photos.groups[0].items[0].prefix}}{{item.venue.photos.groups[0].items[0].width}}x{{item.venue.photos.groups[0].items[0].height}}{{item.venue.photos.groups[0].items[0].suffix}}"/>
                 </div>
-                <div class="col-xs-6 col-md-6"><a href="{{item.tips[0].canonicalUrl}}"
-                                                  target="_blank">{{item.venue.name}}</a></div>
-              </div>
             </div>
             <div class="row">
+                <div class="col-xs-8 col-md-8"><a href="{{item.tips[0].canonicalUrl}}"
+                                                  target="_blank">{{item.venue.name}}</a></div>
+                <div class="col-xs-2 col-md-2 float-right"><label>{{item.venue.rating}}</label></div>
+            </div>
+
+            <div class="row">
               <div class="col-md-12">
-                <div class="col-xs-6 col-md-6"><label>Rating</label></div>
-                <div class="col-xs-6 col-md-6">{{item.venue.rating}}</div>
+                <div class="user-tip">"{{item.tips[0].text}}"</div>
               </div>
             </div>
           </li>
