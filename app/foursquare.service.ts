@@ -26,7 +26,7 @@ export class FoursquareService {
     let baseUrl = 'https://api.foursquare.com/v2/venues/explore';
     let params = new URLSearchParams();
     params.set('near', term);
-    params.set('client_id', 'CLIENT_ID');
+    params.set('client_id', '[CLIENT_ID]');
     params.set('client_secret', '[CLIENT_SECRET]');
     params.set('venuePhotos','true');
     params.set('v', '20160705');

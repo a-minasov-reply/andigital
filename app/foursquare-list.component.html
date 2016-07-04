@@ -1,9 +1,17 @@
 <div class="content-wrap">
   <h1>Foursquare Location Search</h1>
   <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <form>
+    <div class="form-group">
+      <input #search type="text" class="form-control" value="london" placeholder="please enter a location" required>
+      <button class="btn btn-default" (click)="searchItems(search.value)">Submit</button>
+    </div>
+  </form>
+
   <div>
-    <input #search value="london">
-    <button (click)="searchItems(search.value)">Search</button>
+    <!--<input #search value="london">-->
+    <!--<button (click)="searchItems(search.value)">Search</button>-->
 
     <ul *ngFor="let item of items">
       <li>{{item.venue.name}}</li>
