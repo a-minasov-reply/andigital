@@ -1,31 +1,38 @@
 <div class="content-wrap">
-  <div class="container">
-  <h1>Foursquare Location Search</h1>
-  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-  <form>
-    <div class="form-group">
-      <input #search type="text" class="form-control" value="london" placeholder="please enter a location" required>
-      <button class="btn btn-default" (click)="searchItems(search.value)">Submit</button>
-    </div>
-  </form>
-
   <div class="container-fluid">
-    <ul *ngFor="let item of items">
-      <li>
-        <div class="row">
-          <div class="col-xs-3"><a href="{{item.tips[0].canonicalUrl}}" target="_blank">{{item.venue.name}}</a></div>
-          <div class="col-xs-9  pull-left"><img class="venue-image"
-                                                src="{{item.venue.photos.groups[0].items[0].prefix}}{{item.venue.photos.groups[0].items[0].width}}x{{item.venue.photos.groups[0].items[0].height}}{{item.venue.photos.groups[0].items[0].suffix}}"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-3"><label>Rating</label></div>
-          <div class="col-xs-9">{{item.venue.rating}}</div>
-        </div>
+    <div class="col-md-8">
+      <h2>Foursquare Location Search</h2>
 
-      </li>
-    </ul>
-  </div>
+      <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+      <form>
+        <div class="form-group">
+          <input #search type="text" class="form-control" value="london" placeholder="please enter a location" required>
+          <button class="btn btn-default" (click)="searchItems(search.value)">Submit</button>
+        </div>
+      </form>
+
+      <div class="container-fluid">
+        <ul *ngFor="let item of items">
+          <li>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-xs-6 col-md-6"><img class="venue-image"
+                                                    src="{{item.venue.photos.groups[0].items[0].prefix}}{{item.venue.photos.groups[0].items[0].width}}x{{item.venue.photos.groups[0].items[0].height}}{{item.venue.photos.groups[0].items[0].suffix}}"/>
+                </div>
+                <div class="col-xs-6 col-md-6"><a href="{{item.tips[0].canonicalUrl}}"
+                                                  target="_blank">{{item.venue.name}}</a></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-xs-6 col-md-6"><label>Rating</label></div>
+                <div class="col-xs-6 col-md-6">{{item.venue.rating}}</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
