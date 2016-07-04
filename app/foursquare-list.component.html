@@ -6,7 +6,7 @@
       <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
       <form>
         <div class="form-group">
-          <input #search type="text" class="form-control" value="london" placeholder="please enter a location" required>
+          <input #search type="text" class="form-control" placeholder="please enter a location" required>
           <button class="btn btn-default" (click)="searchItems(search.value)">Submit</button>
         </div>
       </form>
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-xs-8 col-md-8"><a href="{{item.tips[0].canonicalUrl}}"
                                                   target="_blank">{{item.venue.name}}</a></div>
-                <div class="col-xs-2 col-md-2 float-right"><label>{{item.venue.rating}}</label></div>
+                <div class="col-xs-2 col-md-2 float-right rating"><label>{{item.venue.rating}}</label></div>
             </div>
 
             <div class="row">
