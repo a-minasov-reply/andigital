@@ -6,6 +6,7 @@ import { Item } from './foursquare-item';
 @Component({
   selector: 'foursquare-list',
   templateUrl: 'app/foursquare-list.component.html',
+  styleUrls: ['app/foursquare-list.component.css'],
   providers: [ FoursquareService ]
 })
 

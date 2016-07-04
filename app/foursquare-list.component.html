@@ -1,7 +1,7 @@
 <div class="content-wrap">
+  <div class="container">
   <h1>Foursquare Location Search</h1>
   <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-
   <form>
     <div class="form-group">
       <input #search type="text" class="form-control" value="london" placeholder="please enter a location" required>
@@ -9,13 +9,23 @@
     </div>
   </form>
 
-  <div>
-    <!--<input #search value="london">-->
-    <!--<button (click)="searchItems(search.value)">Search</button>-->
-
+  <div class="container-fluid">
     <ul *ngFor="let item of items">
-      <li>{{item.venue.name}}</li>
+      <li>
+        <div class="row">
+          <div class="col-xs-3"><a href="{{item.tips[0].canonicalUrl}}" target="_blank">{{item.venue.name}}</a></div>
+          <div class="col-xs-9  pull-left"><img class="venue-image"
+                                                src="{{item.venue.photos.groups[0].items[0].prefix}}{{item.venue.photos.groups[0].items[0].width}}x{{item.venue.photos.groups[0].items[0].height}}{{item.venue.photos.groups[0].items[0].suffix}}"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3"><label>Rating</label></div>
+          <div class="col-xs-9">{{item.venue.rating}}</div>
+        </div>
+
+      </li>
     </ul>
+  </div>
   </div>
 </div>
 
